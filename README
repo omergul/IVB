@@ -1,0 +1,7 @@
+# IVB: Interactor, View and Builder
+
+IVB is a pragmatic mobile architecture pattern that brings in the essential boundaries into your application without adding much overhead.
+
+This repo contains an iOS weather app that serves as an example.
+
+You can grab and import the **Common** folder into your app and start building your app with IVB.
