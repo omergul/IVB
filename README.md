@@ -6,7 +6,7 @@ This repo contains an iOS weather app that serves as an example.
 
 ## Install
 
-You can grab and import the **Common** folder into your app and start building your app with IVB.
+You can grab and import the **Common** folder into your app and start building with IVB.
 
 ## Templates
 
