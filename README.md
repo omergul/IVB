@@ -10,5 +10,5 @@ You can grab and import the **Common** folder into your app and start building y
 
 ## Templates
 
-In order to make it easier to create the boilerplace code for the IVB units, simply copy the **TEMPLATES/IVB** in this repo to **~/Library/Developer/Xcode/Templates**. xCode now will detect the template, and you will see the IVB section once you click *File -> New*.
+To easily create the boilerplate code for the IVB units, simply copy the **Templates/IVB** in this repo to **~/Library/Developer/Xcode/Templates**. Xcode will now detect the template, and you will see the IVB section once you do *File -> New*.
 
