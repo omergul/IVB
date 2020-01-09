@@ -32,6 +32,10 @@ protocol CityDetailBuildable: Buildable {
 
 class CityDetailBuilder: Builder<CityDetailDependency>, CityDetailBuildable {
 
+    init(parentDependency: CityDetailParentDependency) {
+        super.init(dependency: CityDetailDependencyManager(parentDependency: parentDependency))
+    }
+
     func build(city: City, listener: CityDetailListener) -> ViewableInteractable {
         let view = CityDetailViewController()
         let interactor = CityDetailInteractor(view,

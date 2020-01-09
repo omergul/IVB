@@ -21,8 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, RootParentDependency {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene // <-- Window Scene set to UIWindow
 
-        let rootDependency = RootDependencyManager(parentDependency: self)
-        let rootBuilder = RootBuilder(dependency: rootDependency)
+        let rootBuilder = RootBuilder(parentDependency: self)
         rootScope = rootBuilder.build() as? RootInteractor
         rootScope?.willBecomeActive()
 

@@ -29,6 +29,11 @@ protocol LoginBuildable: Buildable {
 }
 
 class LoginBuilder: Builder<LoginDependency>, LoginBuildable {
+
+    init(parentDependency: LoginParentDependency) {
+        super.init(dependency: LoginDependencyManager(parentDependency: parentDependency))
+    }
+
     func build(listener: LoginListener) -> ViewableInteractable {
         let view = LoginViewController()
         let interactor = LoginInteractor(view)

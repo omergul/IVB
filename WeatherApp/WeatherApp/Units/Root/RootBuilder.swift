@@ -19,13 +19,11 @@ protocol RootDependency: RootParentDependency, HomeParentDependency, LoginParent
 
 class RootDependencyManager: Dependency<RootParentDependency>, RootDependency {
     var loginBuilder: LoginBuildable {
-        let dependency = LoginDependencyManager(parentDependency: self)
-        return LoginBuilder(dependency: dependency)
+        return LoginBuilder(parentDependency: self)
     }
 
     var homeBuilder: HomeBuildable {
-        let dependency = HomeDependencyManager(parentDependency: self)
-        return HomeBuilder(dependency: dependency)
+        return HomeBuilder(parentDependency: self)
     }
 }
 
@@ -34,6 +32,11 @@ protocol RootBuildable: Buildable {
 }
 
 class RootBuilder: Builder<RootDependency>, RootBuildable {
+
+    init(parentDependency: RootParentDependency) {
+        super.init(dependency: RootDependencyManager(parentDependency: parentDependency))
+    }
+
     func build() -> ViewableInteractable {
         let view = RootViewController()
         return RootInteractor(view, homeBuilder: dependency.homeBuilder, loginBuilder: dependency.loginBuilder)

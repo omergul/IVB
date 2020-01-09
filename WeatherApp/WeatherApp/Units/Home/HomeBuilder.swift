@@ -20,8 +20,7 @@ protocol HomeDependency: HomeParentDependency, CityDetailParentDependency {
 
 class HomeDependencyManager: Dependency<HomeParentDependency>, HomeDependency {
     var cityDetailBuilder: CityDetailBuildable {
-        let dependency = CityDetailDependencyManager(parentDependency: self)
-        return CityDetailBuilder(dependency: dependency)
+        return CityDetailBuilder(parentDependency: self)
     }
 }
 
@@ -32,6 +31,11 @@ protocol HomeBuildable: Buildable {
 }
 
 class HomeBuilder: Builder<HomeDependency>, HomeBuildable {
+
+    init(parentDependency: HomeParentDependency) {
+        super.init(dependency: HomeDependencyManager(parentDependency: parentDependency))
+    }
+
     func build(listener: HomeListener, activeUser: User) -> ViewableInteractable {
         let view = HomeViewController()
         let interactor = HomeInteractor(view,
